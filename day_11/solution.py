@@ -59,6 +59,7 @@ def process_data(data):
         this_monkey["test"] = test_value
         this_monkey["sends"] = {True:send[0],False:send[1]}
         
+        # Finally, we record the number of items each monkey has inspected in the dictionary.
         this_monkey["items seen"] = 0
         
         monkey_list.append(this_monkey)

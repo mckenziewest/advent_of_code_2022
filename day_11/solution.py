@@ -95,30 +95,19 @@ def get_monkey_business(data):
     
     return item_counts[-2]*item_counts[-1]
     
-
-def part_1(file = "input.txt",num_runs = 20):
+def part_n(file="input.txt",part=1,num_runs=20):
     data = read_data(file)
     
     data = process_data(data)
     for i in range(num_runs):
-        data = complete_round(data)
+        data = complete_round(data,part==1)
         
     return get_monkey_business(data)
 
-assert part_1("test.txt") == 10605
-print(part_1("test.txt"))
-print(part_1())
+assert part_n("test.txt",part=1,num_runs=20) == 10605
+#print(part_n("test.txt",part=1,num_runs=20))
+print(part_n(part=1,num_runs=20))
 
-def part_2(file = "input.txt",num_runs = 100):
-    
-    data = read_data(file)
-    data = process_data(data)
-    
-    for i in range(num_runs):
-        data = complete_round(data,False)
-    
-    return get_monkey_business(data)
-
-assert part_2("test.txt",10000) == 2713310158
-print(part_2("test.txt",20))
-print(part_2(num_runs = 10000))
+assert part_n("test.txt",part=2,num_runs=10000) == 2713310158
+#print(part_n("test.txt",part=2,num_runs=20))
+print(part_n(part=2,num_runs=10000))
